@@ -47,7 +47,7 @@ export const getDailySalesData = async (startDate, endDate) => {
         const dailySalesData = await Order.aggregate([
             {
                 // manay awaya awanay match dabn ka createdAt kayan 
-                // la pash startDate w la pesh endDate buwa
+                // la pash startDate w la pesh endDate buwa yani la newan harduki bet 
                 $match: {
                     createdAt:{
                         $gte: startDate,
@@ -102,16 +102,20 @@ export const getDailySalesData = async (startDate, endDate) => {
     }
 }
 
+
+// arraykman haya pashan letak ka kota rozha la haftakaman dway loopaki while man haya
+// dallain hata kataka bchuk tr bet la awroka awa bexa naw arrayaka 
 function getDatesInRange(startDate, endDate) {
     const dates = [];
     let currentDate = new Date(startDate);
 
     // hata aw katay currentDate bchuktra bexa naw arrayaka
     while (currentDate <= endDate) {
-        // i
+        // bexa naw arrayaka
         dates.push(currentDate.toISOString().split("T")[0]);
+        // aw daytay krdnamana nawe daygorin lo rozhak peshtr
         currentDate.setDate(currentDate.getDate() + 1);
-    }6
+    }
 
     return dates;
 }
