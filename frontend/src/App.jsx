@@ -6,7 +6,7 @@ import LoginPage from './pages/LoginPage.jsx'
 import Navbar from './components/Navbar.jsx'
 
 
-
+ 
 
 
 const App = () => {
@@ -35,7 +35,7 @@ const App = () => {
 
     </Routes>
     </div>
-    </div>
+    </div>      
     )
 }
 

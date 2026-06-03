@@ -3,8 +3,8 @@ import { ShoppingCart, UserPlus, LogIn, LogOut, Lock } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
-  const user = false;
-  const isAdmin = false;
+  const user = true;
+  const isAdmin = true;
 
   return (
     // main
@@ -17,7 +17,7 @@ const Navbar = () => {
       <div className='flex flex-wrap justify-between items-center'>
 
         {/* Link bkar daynen */}
-        <Link to='/' className='text-2xl font-bold text-emerald-400 items-center space-x-2 flex'>
+        <Link to={'/'} className='text-2xl font-bold text-emerald-400 items-center space-x-2 flex'>
         E-Commerce
         </Link>
 
