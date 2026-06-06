@@ -3,15 +3,23 @@ import { Link } from 'react-router-dom'
 import { UserPlus, Mail, Lock, User, ArrowRight, Loader } from 'lucide-react'
 import { motion } from 'framer-motion'
 
+// dast pe krdnawa
+
+// fkr krdnawa laway ku nmuna name dachta naw formData
+// katak name lanaw inputaka danusret ama lagal previews datakani dadanen
+// pashan aw shtay dakain rek lanaw setFromData dakain
+
+// prsyaraka leraya ku name dachetawa jey xoy ku lanaw aw obj {} data konakan dachtawa jey xoy w harwaha name
 
 
+// react component
 const SignUpPage = () => {
 
   const loading = true;
-  // lera da groupe komalla datayake paywast baktr dakain
+  // lera da groupe komalla datayake paywast ba yaktr dakain
   // handleChange builds the data step by step,
   // and handleSubmit uses that final data when the user submits.
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState({ //intial state
     name: "",
     email: "",
     password: "",
@@ -26,8 +34,8 @@ const SignUpPage = () => {
   return (
     <div className='flex flex-col justify-center py-12 sm:px-6 lg:px-8'>
       <motion.div
-      initial={{opacity: 0, y: -20}}
-      animate={{opacity: 1, y: 1}}
+      initial={{opacity: 0, y: -20}} 
+       animate={{opacity: 1, y: 1}}
       transition={{duration: 0.8}}
       >
 
@@ -41,6 +49,7 @@ const SignUpPage = () => {
       >
          <div className='bg-gray-800 py-8 px-4 shadow sm:rounded-lg sm:px-10'> 
 
+          {/* form */}
             <form onSubmit={handleSubmit} className='space-y-6'>
               
               <div>
@@ -51,7 +60,7 @@ const SignUpPage = () => {
                 
                 <div className='mt-1 relative rounded-md shadow-sm'>
                   <div className='absolute inset-y-0 left-0 pl-3 pt-4.5 flex items-center pointer-events-none'>
-                      <User className='h-5 w-5 text-gray-400' aria-hidden='true' />
+                      <User className='h-5 w-5 text-gray-400' aria-hidden='true' /> 
                   </div>
                 </div>
               <input 
