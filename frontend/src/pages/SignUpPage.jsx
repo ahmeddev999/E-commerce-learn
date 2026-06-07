@@ -31,6 +31,13 @@ const SignUpPage = () => {
      console.log(formData);
   }
 
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    })
+  }
+
   return (
     <div className='flex flex-col justify-center py-12 sm:px-6 lg:px-8'>
       <motion.div
@@ -66,14 +73,40 @@ const SignUpPage = () => {
               <input 
               id='name'
               type="text" 
+              name='name'
               required
               value={formData.name}
-              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+              onChange={handleChange}
               className='block w-full px-3 py-2 pl-10 bg-gray-700 border border-gray-600 rounded-md shadow-sm
                placeholder-gray-400 focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm'
-              placeholder='Ahmed Salim'
+              placeholder='Your full name'
               />
               </div>
+    
+              <div>
+
+                <label htmlFor="email">
+                  Email
+                </label>
+                
+                <div className='mt-1 relative rounded-md shadow-sm'>
+                    <div className='absolute inset-y-0 left-0 pl-3 pt-4.5 flex items-center pointer-events-none'>
+                        <Mail className='h-5 w-5 text-gray-400' aria-hidden='true'/>
+                    </div>
+                </div>
+                <input 
+                id='email'
+                type="email"
+                name='email'
+                required
+                value={formData.email}
+                onChange={handleChange} 
+                className='block w-full px-3 py-2 pl-10 bg-gray-700 border-gray-600 rounded-md shadow-sm
+                placeholder-gray-400 focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm'
+                placeholder='email@example.com'
+                />
+              </div>
+
             </form>
 
          </div>
