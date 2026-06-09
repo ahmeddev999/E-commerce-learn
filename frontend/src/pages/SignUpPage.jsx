@@ -15,7 +15,7 @@ import { motion } from 'framer-motion'
 // react component
 const SignUpPage = () => {
 
-  const loading = true;
+  const loading = false;
   // lera da groupe komalla datayake paywast ba yaktr dakain
   // handleChange builds the data step by step,
   // and handleSubmit uses that final data when the user submits.
@@ -107,8 +107,81 @@ const SignUpPage = () => {
                 />
               </div>
 
+              <div>
+
+                <label htmlFor="password">
+                  Password
+                </label>
+                <div className='mt-1 relative rounded-md shadow-sm'>
+                    <div className='absolute inset-y-0 left-0 pl-3 pt-4.5 flex items-center pointer-events-none'> 
+                      {/* pointer-events-none agar click la icon kra hata inputaka har esh bka*/}
+                      <Lock className='h-5 w-5 text-gray-400' aria-hidden='true'/>
+                    </div>
+                </div>
+                <input type="password" 
+                name="password" 
+                id="password" 
+                required
+                value={formData.password}
+                onChange={handleChange}
+                className='block w-full px-3 py-2 pl-10 bg-gray-700 border-gray-600 rounded-md shadow-sm
+                placeholder-gray-400 focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm'
+                placeholder='********'
+                />
+              </div>
+
+              <div>
+
+                <label htmlFor="confirmPassword">
+                  Confirm Password
+                </label>
+                <div className='mt-1 relative rounded-md shadow-sm'>
+                    <div className='absolute inset-y-0 left-0 pl-3 pt-4.5 flex items-center pointer-events-none'> 
+                      {/* pointer-events-none agar click la icon kra hata inputaka har esh bka*/}
+                      <Lock className='h-5 w-5 text-gray-400' aria-hidden='true'/>
+                    </div>
+                </div>
+                <input type="confirmPassword" 
+                name="confirmPassword" 
+                id="confirmPassword" 
+                required
+                value={formData.confirmPassword}
+                onChange={handleChange}
+                className='block w-full px-3 py-2 pl-10 bg-gray-700 border-gray-600 rounded-md shadow-sm
+                placeholder-gray-400 focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm'
+                placeholder='********'
+                />
+              </div>
+
+              <button 
+              type='submit'
+              className='w-full flex justify-center py-2 px-4 border border-transparent 
+              rounded-md shadow-sm font-medium text-white bg-emerald-600
+              hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-offset-2 
+              focus:ring-emerald-500 transition duration-150 ease-in-out disabled:opacity-50'
+              disabled={loading}
+              >
+                { loading ? (
+                <>
+                  <Loader className='mr-2 h-5 w-5 animate-spin' aria-hidden='true' />
+                  Loading...
+                </> )
+                : ( <>
+                  <UserPlus className='mr-2 h-5 w-5' aria-hidden='true' />
+                  Sign up
+                </> )}
+              
+              </button>
+
             </form>
 
+            {/* drust krdni agar user accounti habu la asllda */}
+            <p className='mt-8 text-gray-400 text-center text-sm'>
+              Already have an account?{" "}
+              <Link to={'/login'} className='font-medium text-emerald-400 hover:text-emerald-300'> 
+                  login here <ArrowRight className='inline h-4 w-4' />
+              </Link>
+            </p>
          </div>
         </motion.div>
       </motion.div>
