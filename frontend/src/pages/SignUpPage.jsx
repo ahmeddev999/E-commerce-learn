@@ -141,7 +141,7 @@ const SignUpPage = () => {
                       <Lock className='h-5 w-5 text-gray-400' aria-hidden='true'/>
                     </div>
                 </div>
-                <input type="confirmPassword" 
+                <input type="password" 
                 name="confirmPassword" 
                 id="confirmPassword" 
                 required
@@ -175,7 +175,7 @@ const SignUpPage = () => {
 
             </form>
 
-            {/* drust krdni agar user accounti habu la asllda */}
+            {/* drust krdni agar user accounti habu la asllda videokash tawaw ka*/}
             <p className='mt-8 text-gray-400 text-center text-sm'>
               Already have an account?{" "}
               <Link to={'/login'} className='font-medium text-emerald-400 hover:text-emerald-300'> 
