@@ -25,6 +25,7 @@ const SignUpPage = () => {
     password: "",
     confirmPassword: ""
   });
+
   
   const handleSubmit = (e) => {
      e.preventDefault();
