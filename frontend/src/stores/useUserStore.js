@@ -21,11 +21,7 @@ signup: async({name, email, password, confirmPassword}) => {
         return toast.error("Password do not match!");
     }
 
-    try {
-        
-    } catch (error) {
-        
-    }
+
 }
 
 }));
