@@ -4,7 +4,7 @@ import HomePage from './pages/HomePage.jsx'
 import SignUpPage from './pages/SignUpPage.jsx'
 import LoginPage from './pages/LoginPage.jsx'
 import Navbar from './components/Navbar.jsx'
-
+import { Toaster } from 'react-hot-toast'
 
  
 
@@ -35,6 +35,7 @@ const App = () => {
 
     </Routes>
     </div>
+    <Toaster position='top-center' />
     </div>      
     )
 }

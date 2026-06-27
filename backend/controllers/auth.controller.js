@@ -46,7 +46,7 @@ const setCookies = async (res, accessToken, refreshToken) => {
 
 
 
-export const singup = async (req, res) => {
+export const    signup = async (req, res) => {
     // away ka nardraya 
     const {name, email, password} = req.body;    
    

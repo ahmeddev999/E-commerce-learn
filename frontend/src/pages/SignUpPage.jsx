@@ -2,20 +2,12 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { UserPlus, Mail, Lock, User, ArrowRight, Loader } from 'lucide-react'
 import { motion } from 'framer-motion'
-
-// dast pe krdnawa
-
-// fkr krdnawa laway ku nmuna name dachta naw formData
-// katak name lanaw inputaka danusret ama lagal previews datakani dadanen
-// pashan aw shtay dakain rek lanaw setFromData dakain
-
-// prsyaraka leraya ku name dachetawa jey xoy ku lanaw aw obj {} data konakan dachtawa jey xoy w harwaha name
+import useUserStore from '../stores/useUserStore.js'
 
 
 // react component
 const SignUpPage = () => {
 
-  const loading = false;
   // lera da groupe komalla datayake paywast ba yaktr dakain
   // handleChange builds the data step by step,
   // and handleSubmit uses that final data when the user submits.
@@ -26,9 +18,13 @@ const SignUpPage = () => {
     confirmPassword: ""
   });
 
+  // state w functionakani store bakar dahenen
+  const {user, loading, signup} = useUserStore();
   
   const handleSubmit = (e) => {
      e.preventDefault();
+     // form datakay ka tawaw buwa w submit kraya lo store daneren
+     signup(formData);  
      console.log(formData);
   }
 
