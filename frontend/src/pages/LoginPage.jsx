@@ -2,22 +2,25 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';;
 import { LogIn, Mail, Lock, ArrowRight, Loader, User } from 'lucide-react';
+import useUserStore from '../stores/useUserStore.js';
 
 const LoginPage = () => {
   // lerada aw jora state a React darchay bergam lo drustka
   // w dastpeke value kaman ba "" bet
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const loading = false;
+
+
+  const { login, loading } = useUserStore();
 
   // lo kati submit krdni formakaman
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(email, password);
+    login(email, password); 
   }
 
   return (
-    <div className='fle flex-col justify-center py-12 sm:px-6 lg:px-8'>
+    <div className='flex-col justify-center py-12 sm:px-6 lg:px-8'>
       <motion.div
       initial={{opacity: 0, y: -20}}
       animate={{opacity: 1, y:0}}

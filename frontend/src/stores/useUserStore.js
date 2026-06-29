@@ -26,14 +26,36 @@ signup: async ({name, email, password, confirmPassword}) => {
     // tamshay backend bka tedagay
     const res = await axios.post("/auth/signup", {name, email, password});
     console.log(res.data);
-    set({user: res.data.user, loading: false}); // madam data man war grtawa awa lo user e da danayin
-    toast.success("User has been created successfully");
+    set({user: res.data, loading: false}); // madam data man war grtawa awa lo user e da danayin
+    toast.success("User signup successfully");
     } catch (error) {
         set({loading: false});
         toast.error(error.message || "An error occured"); // lerada aw erroray ka la backend warman grtya ama daykaina alert ba toast
     }
 
 },
+
+
+login: async (email, password) => {
+    
+    set({loading: true});
+
+    try {
+    // check dakain aya aw user w passworda haya w tawawa ?
+    const res = await axios.post("/auth/login", {email, password});
+    
+    // agar habu w tawaw bu awa ama datay userkaman set dakain lo user: 
+    set({user: res.data, loading: false});
+
+    
+    toast.success("User login successfully");
+    } catch (error) {
+
+        set({loading: false});
+        toast.error(error.message || "An error occured");
+    
+    }
+}
 
 }));
 
