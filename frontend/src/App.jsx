@@ -5,11 +5,14 @@ import SignUpPage from './pages/SignUpPage.jsx'
 import LoginPage from './pages/LoginPage.jsx'
 import Navbar from './components/Navbar.jsx'
 import { Toaster } from 'react-hot-toast'
-
+import useUserStore from './stores/useUserStore.js'
  
 
 
 const App = () => {
+
+  const { user } = useUserStore();
+
   return (
 
     // chand classai pe dadain lo appakaman gringa nmuna bchuktren height screenaka bet
@@ -31,7 +34,8 @@ const App = () => {
 
       <Route path='/' element={ <HomePage /> }/>
       <Route path='/signup' element={ <SignUpPage /> }/>
-      <Route path='/login' element={ <LoginPage /> }/>
+      {/* agar user buni habu awa HomePage render bka */}
+      <Route path='/login' element={ user ? <HomePage /> :<LoginPage /> }/> 
 
     </Routes>
     </div>

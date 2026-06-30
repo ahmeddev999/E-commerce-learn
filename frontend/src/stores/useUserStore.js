@@ -41,7 +41,7 @@ login: async (email, password) => {
     set({loading: true});
 
     try {
-    // check dakain aya aw user w passworda haya w tawawa ?
+    // check dakain aya aw user w passworda haya w tawawa  w dawat data ka dakainawa?
     const res = await axios.post("/auth/login", {email, password});
     
     // agar habu w tawaw bu awa ama datay userkaman set dakain lo user: 
