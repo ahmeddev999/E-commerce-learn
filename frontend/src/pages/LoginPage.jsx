@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';;
 import { LogIn, Mail, Lock, ArrowRight, Loader, User } from 'lucide-react';
 import useUserStore from '../stores/useUserStore.js';
+import { useNavigate } from 'react-router-dom';
 
 const LoginPage = () => {
   // lerada aw jora state a React darchay bergam lo drustka
@@ -10,13 +11,21 @@ const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const navigate = useNavigate();
 
   const { login, loading } = useUserStore();
 
+  
+
   // lo kati submit krdni formakaman
-  const handleSubmit = (e) => {
+  // dabi handlesubmit async bet agar goti nabi await chunka async nya dabi handlesubmitesh async be
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    login(email, password); 
+    const success = await login(email, password); 
+
+    if (success) {
+      navigate('/')
+    }
   }
 
   return (

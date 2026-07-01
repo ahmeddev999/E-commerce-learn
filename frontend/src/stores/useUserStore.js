@@ -22,12 +22,16 @@ signup: async ({name, email, password, confirmPassword}) => {
     }
 
     try {
-    // labir maka ka dabi lo /auth benre dabi awash dyari kay agar na nazanit
-    // tamshay backend bka tedagay
+    // labir maka ka dabi lo /auth benre dabi awash dyari kay agar na nazanittamshay backend bka tedagay
     const res = await axios.post("/auth/signup", {name, email, password});
+
     console.log(res.data);
+
     set({user: res.data, loading: false}); // madam data man war grtawa awa lo user e da danayin
+    
     toast.success("User signup successfully");
+    
+    return true;
     } catch (error) {
         set({loading: false});
         toast.error(error.message || "An error occured"); // lerada aw erroray ka la backend warman grtya ama daykaina alert ba toast
@@ -49,6 +53,8 @@ login: async (email, password) => {
 
     
     toast.success("User login successfully");
+
+    return true;
     } catch (error) {
 
         set({loading: false});

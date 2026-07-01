@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { UserPlus, Mail, Lock, User, ArrowRight, Loader } from 'lucide-react'
 import { motion } from 'framer-motion'
 import useUserStore from '../stores/useUserStore.js'
-
+import { useNavigate } from 'react-router-dom'
 
 // react component
 const SignUpPage = () => {
@@ -21,11 +21,19 @@ const SignUpPage = () => {
   // state w functionakani store bakar dahenen
   const {user, loading, signup} = useUserStore();
   
-  const handleSubmit = (e) => {
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
      e.preventDefault();
      // form datakay ka tawaw buwa w submit kraya lo store daneren
-     signup(formData);  
+     const success = await signup(formData);  
+     
      console.log(formData);
+
+     if (success) {
+      navigate('/');
+     }
+     
   }
 
   const handleChange = (e) => {
