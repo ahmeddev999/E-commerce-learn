@@ -5,12 +5,22 @@ import SignUpPage from './pages/SignUpPage.jsx'
 import LoginPage from './pages/LoginPage.jsx'
 import Navbar from './components/Navbar.jsx'
 import { Toaster } from 'react-hot-toast'
- 
+import { Navigate } from 'react-router-dom'
+import useUserStore from './stores/useUserStore.js'
+import LoadingSpinner from './components/LoadingSpinner.jsx'
+
 
 
 const App = () => {
 
+  const { checkAuth, user, checkAuthing } = useUserStore();
 
+  useEffect(() => {
+    checkAuth();    
+  }, [checkAuth])
+
+  if (checkAuthing)  return <LoadingSpinner/>
+  
   return (
 
     // chand classai pe dadain lo appakaman gringa nmuna bchuktren height screenaka bet
@@ -33,8 +43,8 @@ const App = () => {
       <Route path='/' element={ <HomePage /> }/>
       {/* agar !null yani true w agar user habu dabta !user aw kati navigate man dakat
           yan agar user nabu away peshi agar habu navigate */}
-      <Route path='/signup' element={<SignUpPage/>} /> 
-      <Route path='/login' element={<LoginPage/>} /> 
+      <Route path='/signup' element= { !user ? <SignUpPage/> : <Navigate to={'/'} /> } /> 
+      <Route path='/login' element={ !user ? <LoginPage/> : <Navigate to={'/'} />  } /> 
 
     </Routes>
     </div>

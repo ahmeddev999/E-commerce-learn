@@ -69,9 +69,11 @@ checkAuth: async () => {
     set({checkingAuth: true});
 
     try {
-        const res = await axios.get('/auth/profile')    
+        const res = await axios.get('/auth/profile');
+        set({user: res.data, checkingAuth: false});    
     } catch (error) {
-        
+        set({user: null, checkingAuth: false});
+        // toast.error(error.message);
     }
 }
 
