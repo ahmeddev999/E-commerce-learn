@@ -7,6 +7,7 @@ const useUserStore = create((set, get) => ({
 //states
 user: null,
 loading: false,
+checkingAuth: false,
 
 //function
 // lera ama ba {} destructure aw obj dakain ka loman det
@@ -61,7 +62,19 @@ login: async (email, password) => {
         toast.error(error.message || "An error occured");
     
     }
+},
+
+checkAuth: async () => {
+    
+    set({checkingAuth: true});
+
+    try {
+        const res = await axios.get('/auth/profile')    
+    } catch (error) {
+        
+    }
 }
+
 
 }));
 

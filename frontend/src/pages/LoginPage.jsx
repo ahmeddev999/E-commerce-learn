@@ -21,11 +21,7 @@ const LoginPage = () => {
   // dabi handlesubmit async bet agar goti nabi await chunka async nya dabi handlesubmitesh async be
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const success = await login(email, password); 
-
-    if (success) {
-      navigate('/')
-    }
+    login(email, password); 
   }
 
   return (

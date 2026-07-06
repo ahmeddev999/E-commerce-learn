@@ -26,14 +26,8 @@ const SignUpPage = () => {
   const handleSubmit = async (e) => {
      e.preventDefault();
      // form datakay ka tawaw buwa w submit kraya lo store daneren
-     const success = await signup(formData);  
-     
+     signup(formData);  
      console.log(formData);
-
-     if (success) {
-      navigate('/');
-     }
-     
   }
 
   const handleChange = (e) => {
