@@ -17,9 +17,9 @@ const App = () => {
 
   useEffect(() => {
     checkAuth();    
-  }, [checkAuth])
+  }, [checkAuth]);
 
-  if (checkAuthing)  return <LoadingSpinner/>
+  if (checkAuthing)  return <LoadingSpinner />
   
   return (
 

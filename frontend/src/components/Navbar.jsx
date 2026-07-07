@@ -1,10 +1,12 @@
 import React from 'react'
 import { ShoppingCart, UserPlus, LogIn, LogOut, Lock } from "lucide-react";
 import { Link } from "react-router-dom";
+import useUserStore from '../stores/useUserStore.js';
 
 const Navbar = () => {
-  const user = false;
-  const isAdmin = false;
+  
+  const { user } = useUserStore();
+  const isAdmin = user?.role === "admin";
 
   return (
     // main
