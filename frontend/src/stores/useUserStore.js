@@ -3,6 +3,7 @@ import axios from '../lib/axios.js';// labar away default export kraya ba harch 
 import { toast } from 'react-hot-toast';
 
 
+
 const useUserStore = create((set, get) => ({
 //states
 user: null,
@@ -64,6 +65,17 @@ login: async (email, password) => {
     }
 },
 
+logout: async () => {
+    try {
+        await axios.post('/auth/logout');
+        set({user: null});
+        toast.success("User logged out successfully")
+    } catch (error) {
+        toast.error(error.message || "An error occured");
+    }
+},
+
+
 checkAuth: async () => {
     
     set({checkingAuth: true});
@@ -73,7 +85,6 @@ checkAuth: async () => {
         set({user: res.data, checkingAuth: false});    
     } catch (error) {
         set({user: null, checkingAuth: false});
-        // toast.error(error.message);
     }
 }
 

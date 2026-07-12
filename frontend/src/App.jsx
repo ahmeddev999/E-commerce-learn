@@ -13,13 +13,13 @@ import LoadingSpinner from './components/LoadingSpinner.jsx'
 
 const App = () => {
 
-  const { checkAuth, user, checkAuthing } = useUserStore();
+  const { checkAuth, user, checkingAuth } = useUserStore();
 
   useEffect(() => {
     checkAuth();    
   }, [checkAuth]);
 
-  if (checkAuthing)  return <LoadingSpinner />
+  if (checkingAuth)  return <LoadingSpinner />
   
   return (
 

@@ -5,7 +5,7 @@ import useUserStore from '../stores/useUserStore.js';
 
 const Navbar = () => {
   
-  const { user } = useUserStore();
+  const { user, logout } = useUserStore();
   const isAdmin = user?.role === "admin";
 
   return (
@@ -59,10 +59,12 @@ const Navbar = () => {
           {user ? (
 
             <button className='bg-gray-600 hover:bg-gray-600 text-white py-2 px-4
-             rounded-md flex items-center transition duration-300 ease-in-out'>
-              
+             rounded-md flex items-center transition duration-300 ease-in-out'
+            //  agar shti deka nakay lagal onClickaka awa pewest ba () => nakat
+             onClick={logout}
+             >
+                          
               <LogOut size={18}/>
-
               <span className='hidden sm:inline ml-2'>Logout</span>
 
             </button>
