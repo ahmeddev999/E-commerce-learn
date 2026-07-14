@@ -60,7 +60,7 @@ login: async (email, password) => {
     } catch (error) {
 
         set({loading: false});
-        toast.error(error.message || "An error occured");
+        toast.error(error.response?.data?.message || "An error occured");
     
     }
 },
