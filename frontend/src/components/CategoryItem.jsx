@@ -6,7 +6,7 @@ const CategoryItem = ({category}) => {
     <div className='relative overflow-hidden h-96 w-full rounded-lg group'>
         <Link to={"/category" + category.href}>
           <div className='w-full h-full cursor-pointer'>
-            <div className='absolute inset-0 bg-gradient-to-b from-transparent to-gray-900
+            <div className='absolute inset-0 bg-linear-to-b from-transparent to-gray-900
             opacity-50 z-10' />
             <img 
             src={category.imgUrl} 
@@ -23,6 +23,7 @@ const CategoryItem = ({category}) => {
     </div>
   )
 }
+
 
 export default CategoryItem
  
