@@ -8,6 +8,7 @@ import { Toaster } from 'react-hot-toast'
 import { Navigate } from 'react-router-dom'
 import useUserStore from './stores/useUserStore.js'
 import LoadingSpinner from './components/LoadingSpinner.jsx'
+import AdminPage from './pages/AdminPage.jsx'
 
 
 
@@ -45,7 +46,8 @@ const App = () => {
           yan agar user nabu away peshi agar habu navigate */}
       <Route path='/signup' element= { !user ? <SignUpPage/> : <Navigate to={'/'} /> } /> 
       <Route path='/login' element={ !user ? <LoginPage/> : <Navigate to={'/'} />  } /> 
-
+      {/* lerada dallain aya useraka role yaksana ba Admin w loye awam danaya ?. chunka agar wanabi codeka esh nakat  */}
+      <Route path='/secret-dashboard' element={ user?.role === "admin" ? <AdminPage /> : <Navigate to={'/'} /> } />
     </Routes>
     </div>
     <Toaster position='top-center' />
