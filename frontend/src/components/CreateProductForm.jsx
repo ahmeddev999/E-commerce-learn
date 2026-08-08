@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion';
-import { PlusCircle, Upload, Loader, PlusCircleIcon} from 'lucide-react'
-
+import { PlusCircle, Upload, Loader, PlusCircleIcon, Check, CheckLineIcon} from 'lucide-react'
+import { useProductStore } from '../stores/useProductStore.js';
 const categories = ["jean", "t-shirt", "shoes", "glasses", "jacket", "suit", "bag"];
 
 const CreateProductForm = () => {
 
-  const loading = false;
+  const { loading, createProduct} = useProductStore();
 
   const [newProduct, setNewProduct] = useState({
     name: "",
@@ -16,20 +16,27 @@ const CreateProductForm = () => {
     image: "",
   }); 
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(newProduct);
+    await createProduct(newProduct);
+    setNewProduct({name: "", description: "", price: "", category: "", image: "",})
   }
 
   const handleImageChange = (e) => {
+    // file ka wardagrin
     const file = e.target.files[0];
+
+    //check dakain aya buni haya
     if (file) {
+      // madam buni haya file reader drust dakainm
       const reader = new FileReader();
 
+      // ka gayshta era ba code xwar xoy dalle atu bexinawa w bka base64 awja lomi bnerawa
       reader.onloadend = () => {
         setNewProduct({...newProduct, image: reader.result });
       }
 
+      // ka xindyawa w krdya base64 lo onloaded sare daneretawa
       reader.readAsDataURL(file); //base64
     }
   }
@@ -119,8 +126,8 @@ const CreateProductForm = () => {
           </select>
         </div>
 
-				<div className='mt-1 flex items-center' onChange={handleImageChange}>
-					<input type='file' id='image' className='sr-only' accept='image/*'/>
+				<div className='mt-1 flex items-center' >
+					<input type='file' id='image'onChange={handleImageChange} className='sr-only' accept='image/*'/>
 					<label
 						htmlFor='image'
 						className='cursor-pointer bg-gray-700 py-2 px-3 border border-gray-600 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-300 hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500'
@@ -128,7 +135,7 @@ const CreateProductForm = () => {
 						<Upload className='h-5 w-5 inline-block mr-2' />
 						Upload Image
 					</label>
-					{newProduct.image && <span className='ml-3 text-sm text-gray-400'>Image uploaded </span>}
+					{newProduct.image && <span className='ml-3 text-sm text-gray-400'> Image uploaded</span>}
 				</div>        
 
 

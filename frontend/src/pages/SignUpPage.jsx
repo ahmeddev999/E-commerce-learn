@@ -26,7 +26,7 @@ const SignUpPage = () => {
   const handleSubmit = async (e) => {
      e.preventDefault();
      // form datakay ka tawaw buwa w submit kraya lo store daneren
-     signup(formData);  
+     await signup(formData);  // await labir maka
      console.log(formData);
   }
 

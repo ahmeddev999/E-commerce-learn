@@ -36,7 +36,7 @@ signup: async ({name, email, password, confirmPassword}) => {
     return true;
     } catch (error) {
         set({loading: false});
-        toast.error(error.message || "An error occured"); // lerada aw erroray ka la backend warman grtya ama daykaina alert ba toast
+        toast.error(error.response?.data?.message || "An error occured"); // lerada aw erroray ka la backend warman grtya ama daykaina alert ba toast
     }
 
 },
