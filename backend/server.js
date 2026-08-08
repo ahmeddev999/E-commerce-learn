@@ -16,7 +16,8 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 //hata btwanin numna req.body bakar binin
-app.use(express.json());
+// agar goti file qabarakay gawraya ama lera max dakaina 10mb
+app.use(express.json({limit: "10mb"}));
 // middleware lo away cookies la request user wargrin
 app.use(cookieParser());
 // lo away durbin la cors
