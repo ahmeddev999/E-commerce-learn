@@ -13,7 +13,7 @@ const CreateProductForm = () => {
     description: "",
     price: "",
     category: "",
-    image: "",
+    image: ""
   }); 
 
   const handleSubmit = async (e) => {
