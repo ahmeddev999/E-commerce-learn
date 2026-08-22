@@ -57,7 +57,8 @@ export const useProductStore = create((set, get) => ({
     // la mapaka dast pe dakam 
     // dallen set dakain damanawe data lo array products da bnain parametaraka danusin
     // pashan dallen la state pesh update lanaw proprety products map bka agar har yak
-    // la id productakan ka tedaya w aw id ka hatya loman yaksan bu awa ...products ba kaml datay peshu
+    // la id productakan ka tedaya w aw id ka hatya loman yaksan bu awa ...products ba kaml datay peshu 
+    // update bkawa lagal awa data nweya ka nardetm
     toggleFeaturedProduct: async (productId) => {
         set({ loading: true });
         try {
@@ -74,4 +75,18 @@ export const useProductStore = create((set, get) => ({
         }
     },
 
+
+    fetchProductByCategory: async (category) => {
+        set({loading: true});
+        try {
+            const res = await axios.get(`/products/category/${category}`);
+            // labar away dallain .data chunka la BC ama object man nakrdya
+            set({ products: res.data, loading: false});
+        } catch (error) {
+            set({loading: false});
+            toast.error(error.response?.data?.data?.message || error.message);
+        }
+    },
+
 }))
+

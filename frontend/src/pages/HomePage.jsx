@@ -6,7 +6,7 @@ import CategoryItem from '../components/CategoryItem.jsx'
 // drust krdni arrayak la category
 const categories = [
   {href: "/jeans", name: "Jeans", imgUrl: "/jeans.jpg"},
-  {href: "/tshirts", name: "T-shirts", imgUrl: "/tshirts.jpg"},
+  {href: "/t-shirts", name: "T-shirts", imgUrl: "/tshirts.jpg"},
   {href: "/shoes", name: "Shoes", imgUrl: "/shoes.jpg"},
   {href: "/glasses", name: "Glasses", imgUrl: "/glasses.png"},
   {href: "/jackets", name: "Jackets", imgUrl: "/jackets.jpg"},

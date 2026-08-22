@@ -4,7 +4,7 @@ import { toast } from 'react-hot-toast';
 
 
 
-const useUserStore = create((set, get) => ({
+export const useUserStore = create((set, get) => ({
 //states
 user: null,
 loading: false,

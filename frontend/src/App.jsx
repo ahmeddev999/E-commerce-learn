@@ -9,6 +9,7 @@ import { Navigate } from 'react-router-dom'
 import useUserStore from './stores/useUserStore.js'
 import LoadingSpinner from './components/LoadingSpinner.jsx'
 import AdminPage from './pages/AdminPage.jsx'
+import CategoryPage from './pages/CategoryPage.jsx'
 
 
 
@@ -48,6 +49,8 @@ const App = () => {
       <Route path='/login' element={ !user ? <LoginPage/> : <Navigate to={'/'} />  } /> 
       {/* lerada dallain aya useraka role yaksana ba Admin w loye awam danaya ?. chunka agar wanabi codeka esh nakat  */}
       <Route path='/secret-dashboard' element={ user?.role === "admin" ? <AdminPage /> : <Navigate to={'/'} /> } />
+      {/* lerada loya /: bkar daynin manay awaya awya ka awa yan dynamica  */}
+      <Route path='/category/:category' element={ <CategoryPage /> }/>
     </Routes>
     </div>
     <Toaster position='top-center' />
